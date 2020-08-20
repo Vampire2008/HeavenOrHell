@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  frontend:
+    image: hoh-front
+    build:
+      context: ./VueSPA
+    ports:
+      - "8080:80"
+
+
+  storingapi:
+    image: hoh-back
+    build:
+      context: .
+      dockerfile: StoringAPI/Dockerfile
+#    environment:
+      
+
+  sql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Pass@word1"
+    ports:
+      - "1433:1433"
+    
