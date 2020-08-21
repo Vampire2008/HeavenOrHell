@@ -17,7 +17,7 @@
 					v-if="form.easyToAnger && form.tryingToControl"
 				>Are you like a God of war?</b-form-checkbox>
 				<b-form-group label="How many items do you broke?">
-					<b-form-input type="number" v-model.number="form.brockenItems" min="0"></b-form-input>
+					<b-form-input type="number" v-model.number="form.brokenItems" min="0"></b-form-input>
 				</b-form-group>
 			</b-col>
 		</b-row>
@@ -37,7 +37,7 @@
 					easyToAnger: false,
 					tryingToControl: false,
 					godOfWar: false,
-					brockenItems: 0,
+					brokenItems: 0,
 				},
 			};
 		},

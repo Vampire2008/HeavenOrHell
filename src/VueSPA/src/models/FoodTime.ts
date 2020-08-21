@@ -1,11 +1,11 @@
 enum FoodTime {
-	Breakfast,
-	Brunch,
-	Lunch,
-	AfternoonSnack,
-	Dinner,
-	LateSupper,
-	BeforeBattle
+	Breakfast = 0,
+	Brunch = 1,
+	Lunch = 2,
+	AfternoonSnack = 4,
+	Dinner = 8,
+	LateSupper = 16,
+	BeforeBattle = 32
 }
 
 function foodTimeGetDisplayName(foodTime: FoodTime) {

@@ -2,7 +2,7 @@ interface WrathModel {
 	easyToAnger: boolean,
 	tryingToControl: boolean,
 	godOfWar: boolean,
-	brockenItems: number
+	brokenItems: number
 }
 
 export default WrathModel;

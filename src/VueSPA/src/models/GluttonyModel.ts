@@ -1,5 +1,4 @@
-import FoodTime from "./FoodTime";
-// import type FoodTime from "./FoodTime";
+import type FoodTime from "./FoodTime";
 
 interface GluttonyModel {
 	eatingInDay: number,

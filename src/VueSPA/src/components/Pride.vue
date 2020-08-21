@@ -32,7 +32,7 @@
 				form: {
 					acceptFail: true,
 					whoFail: WhoFail.Both,
-					betterTherOther: false,
+					betterThanOther: false,
 				},
 				whoFailTypes: WhoFail,
 			};
