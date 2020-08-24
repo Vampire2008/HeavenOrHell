@@ -22,6 +22,9 @@
   <ItemGroup>
     <Content Include=".dockerignore" />
     <Content Include=".editorconfig" />
+    <Content Include=".env">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include=".eslintrc.js" />
     <Content Include=".gitignore" />
     <Content Include="babel.config.js" />

@@ -15,12 +15,10 @@ Vue.use(BootstrapVue);
 
 Vue.use(Vuelidate);
 
-axios.defaults.baseURL = "https://localhost:44399/";
+axios.defaults.baseURL = process.env.VUE_APP_BACKEND_URL;
 
 new Vue({
 	router,
 	store,
 	render: h => h(App)
 }).$mount("#app");
-
-console.log("started");

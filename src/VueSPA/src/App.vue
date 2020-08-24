@@ -25,11 +25,7 @@
 
 <script lang="ts">
 	import Vue from "vue";
-	export default Vue.extend({
-		created() {
-			
-		},
-	});
+	export default Vue.extend({});
 </script>
 
 <style>

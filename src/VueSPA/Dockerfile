@@ -1,4 +1,7 @@
 FROM node:latest as build-stage
+ARG BACK_URL
+ENV VUE_APP_BACKEND_URL $BACK_URL
+
 WORKDIR /app
 COPY package*.json ./
 RUN npm install

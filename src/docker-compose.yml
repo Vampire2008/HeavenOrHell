@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
 
-  frontend:
+  vuespa:
     image: hoh-front
     build:
       context: ./VueSPA
-    ports:
-      - "8080:80"
+    depends_on:
+      - storingapi
 
 
   storingapi:
@@ -15,7 +15,10 @@ services:
     build:
       context: .
       dockerfile: StoringAPI/Dockerfile
-#    environment:
+    depends_on:
+      - sql
+    environment:
+      "ConnectionStrings__DefaultConnection": "Data source=sql;User=sa;Password=Pass@word1;Database=hoh"
       
 
   sql:
@@ -23,6 +26,4 @@ services:
     environment:
       ACCEPT_EULA: "Y"
       SA_PASSWORD: "Pass@word1"
-    ports:
-      - "1433:1433"
     
