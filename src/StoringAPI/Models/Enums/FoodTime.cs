@@ -5,12 +5,13 @@ namespace StoringAPI.Models.Enums
     [Flags]
     public enum FoodTime
     {
+        No,
         Breakfast,
         Brunch,
-        Lunch,
-        AfternoonSnack = 4,
-        Dinner = 8,
-        LateSupper = 16,
-        BeforeBattle = 32
+        Lunch = 4,
+        AfternoonSnack = 8,
+        Dinner = 16,
+        LateSupper = 32,
+        BeforeBattle = 64
     }
 }

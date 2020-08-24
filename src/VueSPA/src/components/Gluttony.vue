@@ -45,10 +45,16 @@
 
 <script lang="ts">
 	import type GluttonyModel from "@/models/GluttonyModel";
-	import { default as FoodTime, foodTimeGetDisplayName } from "@/models/FoodTime";
+	import {
+		default as FoodTime,
+		foodTimeGetDisplayName,
+		foodTimeToNumber,
+		foodTimeToArray,
+	} from "@/models/FoodTime";
 	import mixins from "vue-typed-mixins";
 	import formValidateMixin from "@/mixins/formValidateMixin";
 	import { minValue } from "vuelidate/lib/validators";
+	import axios from "axios";
 
 	export default mixins(formValidateMixin).extend({
 		data(): { form: GluttonyModel; foodTimes: typeof FoodTime } {
@@ -71,13 +77,42 @@
 		},
 		methods: {
 			foodTimeGetDisplayName,
-			submit(): boolean {
+
+			submit(): void {
 				if (!this.validateForm()) {
-					return false;
+					this.$emit("submited", false);
+					return;
 				}
-				//TODO: save
-				return true;
+				this.$store.commit("saveGluttony", {
+					...this.form,
+					mostImportantType: foodTimeToNumber(
+						this.form.mostImportantType
+					),
+				});
+				axios
+					.post("/api/survey/SaveGluttony", {
+						uuid: this.$store.state.uuid,
+						...this.form,
+						mostImportantType: foodTimeToNumber(
+							this.form.mostImportantType
+						),
+					})
+					.then(() => {
+						this.$emit("submited", true);
+					})
+					.catch((error) => {
+						console.error(error.toJSON());
+						this.$emit("submited", false);
+					});
 			},
+		},
+		created() {
+			this.form.eatingInDay = this.$store.state.gluttony.eatingInDay;
+			this.form.cookies = this.$store.state.gluttony.cookies;
+			this.form.mostImportantType = foodTimeToArray(
+				this.$store.state.gluttony.mostImportantType
+			);
+			this.form.fastFood = this.$store.state.gluttony.fastFood;
 		},
 	});
 </script>

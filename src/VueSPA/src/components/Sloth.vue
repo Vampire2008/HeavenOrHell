@@ -46,8 +46,9 @@
 	import mixins from "vue-typed-mixins";
 	import formValidateMixin from "@/mixins/formValidateMixin";
 	import { required } from "vuelidate/lib/validators";
+	import sinForm from "@/mixins/sinForm";
 
-	export default mixins(formValidateMixin).extend({
+	export default mixins(formValidateMixin, sinForm).extend({
 		data(): {
 			form: SlothModel;
 			reactions: typeof ReactionOnAccidentType;
@@ -72,12 +73,16 @@
 			},
 		},
 		methods: {
-			submit(): boolean {
-				if (!this.validateForm()) return false;
-
-				//TODO: Save
-				return true;
+			submit(): void {
+				if (!this.validateForm()) {
+					this.$emit("submited", false);
+					return;
+				}
+				this.saveForm("Sloth");
 			},
+		},
+		created() {
+			this.getValuesFromStore("sloth");
 		},
 	});
 </script>

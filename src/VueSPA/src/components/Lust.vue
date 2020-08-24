@@ -27,13 +27,13 @@
 </template>
 
 <script lang="ts">
-	import Vue from "vue";
 	import type LustModel from "@/models/LustModel";
 	import mixins from "vue-typed-mixins";
 	import formValidateMixin from "@/mixins/formValidateMixin";
 	import { minValue } from "vuelidate/lib/validators";
+	import sinForm from "@/mixins/sinForm";
 
-	export default mixins(formValidateMixin).extend({
+	export default mixins(formValidateMixin, sinForm).extend({
 		data(): { form: LustModel } {
 			return {
 				form: {
@@ -52,12 +52,16 @@
 			},
 		},
 		methods: {
-			submit(): boolean {
-				if (!this.validateForm()) return false;
-
-				//TODO: Save data
-				return true;
+			submit(): void {
+				if (!this.validateForm()) {
+					this.$emit("submited", false);
+					return;
+				}
+				this.saveForm("Lust");
 			},
+		},
+		created() {
+			this.getValuesFromStore("lust");
 		},
 	});
 </script>

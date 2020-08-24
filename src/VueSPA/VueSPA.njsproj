@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7e4291e0-d057-4be3-a02c-745155794e11}</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <StartupFile>node_modules\@vue\cli-service\bin\vue-cli-service.js</StartupFile>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+    <EnableTypeScript>true</EnableTypeScript>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">16.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <StartWebBrowser>True</StartWebBrowser>
+    <SaveNodeJsSettingsInProjectFile>True</SaveNodeJsSettingsInProjectFile>
+    <ScriptArguments> serve</ScriptArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <ItemGroup>
+    <Content Include=".dockerignore" />
+    <Content Include=".editorconfig" />
+    <Content Include=".eslintrc.js" />
+    <Content Include=".gitignore" />
+    <Content Include="babel.config.js" />
+    <Content Include="Dockerfile" />
+    <Content Include="nginx.conf" />
+    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
+    <None Include="tsconfig.json" />
+    <Content Include="README.md" />
+    <Content Include="public\index.html" />
+    <Content Include="public\favicon.ico" />
+    <Content Include="src\App.vue" />
+    <None Include="src\main.ts" />
+    <None Include="src\shims-tsx.d.ts" />
+    <None Include="src\shims-vue.d.ts" />
+    <Content Include="src\assets\logo.png" />
+    <Content Include="src\components\Envy.vue" />
+    <Content Include="src\components\Gluttony.vue" />
+    <Content Include="src\components\Greed.vue" />
+    <Content Include="src\components\HelloWorld.vue" />
+    <Content Include="src\components\Loader.vue" />
+    <Content Include="src\components\Lust.vue" />
+    <Content Include="src\components\PersonForm.vue" />
+    <Content Include="src\components\Pride.vue" />
+    <Content Include="src\components\Result.vue" />
+    <Content Include="src\components\Sloth.vue" />
+    <Content Include="src\components\Wrath.vue" />
+    <None Include="src\mixins\formValidateMixin.ts" />
+    <None Include="src\models\AfterLifeType.ts" />
+    <None Include="src\models\CollectionType.ts" />
+    <None Include="src\models\EnvyModel.ts" />
+    <None Include="src\models\FoodTime.ts" />
+    <None Include="src\models\Gender.ts" />
+    <None Include="src\models\GluttonyModel.ts" />
+    <None Include="src\models\GreedModel.ts" />
+    <None Include="src\models\LustModel.ts" />
+    <None Include="src\models\PersonFormInput.ts" />
+    <None Include="src\models\PrideModel.ts" />
+    <None Include="src\models\ReactionOnAccidentType.ts" />
+    <None Include="src\models\ServantsType.ts" />
+    <None Include="src\models\SlothModel.ts" />
+    <None Include="src\models\WhoFail.ts" />
+    <None Include="src\models\WrathModel.ts" />
+    <None Include="src\router\index.ts" />
+    <None Include="src\store\index.ts" />
+    <Content Include="src\views\About.vue" />
+    <Content Include="src\views\Home.vue" />
+    <Content Include="src\views\Survey.vue" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="public" />
+    <Folder Include="src" />
+    <Folder Include="src\assets" />
+    <Folder Include="src\components" />
+    <Folder Include="src\mixins" />
+    <Folder Include="src\models" />
+    <Folder Include="src\router" />
+    <Folder Include="src\store" />
+    <Folder Include="src\views" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:48022/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

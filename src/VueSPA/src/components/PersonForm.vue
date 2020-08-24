@@ -43,8 +43,10 @@
 	import formValidateMixin from "@/mixins/formValidateMixin";
 	import { required } from "vuelidate/lib/validators";
 	import mixins from "vue-typed-mixins";
+	import axios from "axios";
+	import sinForm from "@/mixins/sinForm";
 
-	export default mixins(formValidateMixin).extend({
+	export default mixins(formValidateMixin, sinForm).extend({
 		data(): { form: PersonFormInput; genders: typeof Gender } {
 			return {
 				form: {
@@ -71,17 +73,18 @@
 				// this.form.name = this.form.name.trim();
 			},
 			genderGetDisplayName,
-			submit(): boolean {
+			submit(): void {
 				if (!this.validateForm()) {
-					return false;
+					// return false;
+					this.$emit("submited", false);
+					return;
 				}
-				this.$store.commit("savePerson", this.form);
-				return true;
+				this.saveForm("Personal");
+				// return true;
 			},
 		},
 		created() {
-			//DEBUG:
-			// (window as any).myVar = this;
+			this.getValuesFromStore("person");
 		},
 	});
 </script>

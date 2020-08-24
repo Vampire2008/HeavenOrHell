@@ -1,11 +1,12 @@
 enum FoodTime {
-	Breakfast = 0,
-	Brunch = 1,
-	Lunch = 2,
-	AfternoonSnack = 4,
-	Dinner = 8,
-	LateSupper = 16,
-	BeforeBattle = 32
+	No = 0,
+	Breakfast = 1,
+	Brunch = 2,
+	Lunch = 4,
+	AfternoonSnack = 8,
+	Dinner = 16,
+	LateSupper = 32,
+	BeforeBattle = 64
 }
 
 function foodTimeGetDisplayName(foodTime: FoodTime) {
@@ -27,5 +28,26 @@ function foodTimeGetDisplayName(foodTime: FoodTime) {
 	}
 }
 
+function foodTimeToNumber(arr: Array<FoodTime>): number {
+	let result = 0;
+	for (var ft of arr) {
+		result |= ft;
+	}
+	return result;
+}
+
+function foodTimeToArray(num: number) {
+	const arr: FoodTime[] = [];
+
+	for (var ftName in FoodTime) {
+		const numVal = parseInt(ftName);
+		if (isNaN(num) || numVal === 0) continue;
+		if ((num & numVal) === numVal) {
+			arr.push((numVal as FoodTime));
+		}
+	}
+	return arr;
+}
+
 export default FoodTime;
-export { foodTimeGetDisplayName };
+export { foodTimeGetDisplayName, foodTimeToArray, foodTimeToNumber };

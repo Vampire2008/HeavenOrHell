@@ -27,7 +27,7 @@
 	import Vue from "vue";
 	export default Vue.extend({
 		created() {
-			console.log("App started");
+			
 		},
 	});
 </script>

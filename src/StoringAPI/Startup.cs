@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StoringAPI.Data;
+using StoringAPI.Services;
 
 namespace StoringAPI
 {
@@ -24,7 +25,9 @@ namespace StoringAPI
             {
                 options.AddPolicy(Cors.FrontendAppPolicy, builder =>
                 {
-                    builder.WithOrigins(Configuration.GetValue<string>("FrontendOrigin"));
+                    builder.WithOrigins(Configuration.GetValue<string>("FrontendOrigin"))
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
                 });
             });
 
@@ -34,6 +37,7 @@ namespace StoringAPI
             });
 
             services.AddControllers();
+            services.AddTransient<IHohService, HohService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,6 +51,7 @@ namespace StoringAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+            app.UseCors();
 
             app.UseAuthorization();
 

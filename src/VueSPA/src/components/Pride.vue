@@ -22,11 +22,12 @@
 </template>
 
 <script lang="ts">
-	import Vue from "vue";
 	import type PrideModel from "@/models/PrideModel";
 	import WhoFail from "@/models/WhoFail";
+	import sinForm from "@/mixins/sinForm";
+	import mixins from "vue-typed-mixins";
 
-	export default Vue.extend({
+	export default mixins(sinForm).extend({
 		data(): { form: PrideModel; whoFailTypes: typeof WhoFail } {
 			return {
 				form: {
@@ -38,9 +39,12 @@
 			};
 		},
 		methods: {
-			submit(): boolean {
-				return true;
+			submit(): void {
+				this.saveForm("Pride");
 			},
+		},
+		created() {
+			this.getValuesFromStore("pride");
 		},
 	});
 </script>

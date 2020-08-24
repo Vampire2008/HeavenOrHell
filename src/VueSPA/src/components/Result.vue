@@ -44,6 +44,7 @@
 	import Vue from "vue";
 	import AfterLifeType from "@/models/AfterLifeType";
 	import Loader from "./Loader.vue";
+	import Axios from "axios";
 
 	export default Vue.extend({
 		components: {
@@ -61,7 +62,20 @@
 			};
 		},
 		mounted() {
-			//TODO: Get answer from server
+			Axios.get("/api/survey/GetResult", {
+				params: {
+					uuid: this.$store.state.uuid,
+				},
+			})
+				.then((response) => {
+					this.result = response.data.result;
+					this.ajaxInProcess = false;
+					sessionStorage.clear();
+				})
+				.catch((error) => {
+					alert("Something goes wrong");
+					console.error(error.toJSON());
+				});
 		},
 	});
 </script>

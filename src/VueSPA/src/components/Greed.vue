@@ -38,8 +38,10 @@
 	import Vue from "vue";
 	import type GreedModel from "@/models/GreedModel";
 	import CollectionType from "@/models/CollectionType";
+	import sinForm from "@/mixins/sinForm";
+	import mixins from "vue-typed-mixins";
 
-	export default Vue.extend({
+	export default mixins(sinForm).extend({
 		data(): { form: GreedModel; collectionTypes: typeof CollectionType } {
 			return {
 				form: {
@@ -54,8 +56,11 @@
 		},
 		methods: {
 			submit() {
-				return true;
+				this.saveForm("Greed");
 			},
+		},
+		created() {
+			this.getValuesFromStore("greed");
 		},
 	});
 </script>

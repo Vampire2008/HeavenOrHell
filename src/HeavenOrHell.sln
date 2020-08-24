@@ -5,9 +5,12 @@ VisualStudioVersion = 16.0.30406.217
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoringAPI", "StoringAPI\StoringAPI.csproj", "{4BE6B1BF-F04A-4E81-B39C-35D60595AA50}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VueSPA", "VueSPA", "{6A29B203-5171-4ADD-B632-E565E53E898E}"
-EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6AC6AB1E-C7FC-4DBF-9889-AAA247CADDAD}"
+EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "VueSPA", "VueSPA\VueSPA.njsproj", "{7E4291E0-D057-4BE3-A02C-745155794E11}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4BE6B1BF-F04A-4E81-B39C-35D60595AA50} = {4BE6B1BF-F04A-4E81-B39C-35D60595AA50}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +26,10 @@ Global
 		{6AC6AB1E-C7FC-4DBF-9889-AAA247CADDAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AC6AB1E-C7FC-4DBF-9889-AAA247CADDAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AC6AB1E-C7FC-4DBF-9889-AAA247CADDAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4291E0-D057-4BE3-A02C-745155794E11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E4291E0-D057-4BE3-A02C-745155794E11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E4291E0-D057-4BE3-A02C-745155794E11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E4291E0-D057-4BE3-A02C-745155794E11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

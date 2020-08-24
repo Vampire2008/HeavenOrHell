@@ -12,10 +12,7 @@
 					v-model="form.tryingToControl"
 					:disabled="!form.easyToAnger"
 				>Are you trying to control anger?</b-form-checkbox>
-				<b-form-checkbox
-					v-model="form.godOfWar"
-					v-if="form.easyToAnger && form.tryingToControl"
-				>Are you like a God of war?</b-form-checkbox>
+				<b-form-checkbox v-model="form.godOfWar" v-if="form.easyToAnger">Are you like a God of war?</b-form-checkbox>
 				<b-form-group label="How many items do you broke?">
 					<b-form-input type="number" v-model.number="form.brokenItems" min="0"></b-form-input>
 				</b-form-group>
@@ -29,8 +26,9 @@
 	import mixins from "vue-typed-mixins";
 	import formValidateMixin from "@/mixins/formValidateMixin";
 	import { minValue } from "vuelidate/lib/validators";
+	import sinForm from "@/mixins/sinForm";
 
-	export default mixins(formValidateMixin).extend({
+	export default mixins(formValidateMixin, sinForm).extend({
 		data(): { form: WrathModel } {
 			return {
 				form: {
@@ -49,13 +47,16 @@
 			},
 		},
 		methods: {
-			submit(): boolean {
+			submit(): void {
 				if (!this.validateForm()) {
-					return false;
+					this.$emit("submited", false);
+					return;
 				}
-				//TODO: save
-				return true;
+				this.saveForm("Wrath");
 			},
+		},
+		created() {
+			this.getValuesFromStore("wrath");
 		},
 	});
 </script>

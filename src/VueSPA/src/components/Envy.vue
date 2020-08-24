@@ -30,10 +30,11 @@
 </template>
 
 <script lang="ts">
-	import Vue from "vue";
 	import type EnvyModel from "@/models/EnvyModel";
+	import sinForm from "@/mixins/sinForm";
+	import mixins from "vue-typed-mixins";
 
-	export default Vue.extend({
+	export default mixins(sinForm).extend({
 		data(): { form: EnvyModel } {
 			return {
 				form: {
@@ -44,9 +45,12 @@
 			};
 		},
 		methods: {
-			submit(): boolean {
-				return true;
+			submit(): void {
+				this.saveForm("Envy");
 			},
+		},
+		created() {
+			this.getValuesFromStore("envy");
 		},
 	});
 </script>
